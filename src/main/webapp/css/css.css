@@ -1,0 +1,133 @@
+@charset "ISO-8859-1";
+body {
+  height: 100%;
+  background-color:black ;
+}
+
+section .container{
+  margin:auto;
+  background: black;
+  width: 100px;
+  height: 100px;
+  border-radius: 4px;
+	 
+ 
+ }
+ 
+  section  .loading {
+      margin: 55px auto;
+      margin-left:15px;
+      background: black;
+      width: 100px;
+      height: 100px;
+      border-radius: 4px;
+	  position:relative;
+	  float: left;
+	  display: flex;
+      justify-content: center;
+      align-items: center;
+	
+      
+      
+    }
+    section  .text {
+      margin: 25px auto;
+      font-family:'Lucida Handwriting';
+      background: black;
+      font-weight: bold;
+      width: 50px;
+      height: 50px;
+      border-radius: 4px;
+	  float: left;
+	  opacity: 0.9;
+	  display: flex;
+    justify-content: center;
+    align-items: center;
+      
+    }
+     section .load3 {
+     border: 1.5px solid black;
+      background: #FFF5EE;
+      width: 90px;
+      height: 90px;
+      border-radius: 4px;
+      position:relative;
+      top:0.1px;
+      margin-left:10px;
+      animation: rotate 6s infinite linear;
+      opacity: 0.3;
+
+    }
+  
+   section .load {
+      border: 1.5px solid black;
+      background: #FFF5EE;
+      width: 90px;
+      height: 90px;
+      border-radius: 4px;
+      position:relative;
+      top:60px;
+      margin-left:10px;
+      animation: rotate 4s infinite linear;
+      opacity: 0.3;
+ 
+    }
+  
+    
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(359deg);
+      }
+    }
+    
+    .cont{
+    width: 100vw;
+	height: 25vh;
+	background: black;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center
+	    
+	    }
+	    
+.bts{
+	width: 300px;
+	height: 150px;
+	background: black;
+	
+	
+	
+	
+	
+}
+p{
+	color: #FFFFFF;
+}
+
+.botao{
+	margin-top:10px;
+	margin-left:110px;
+	border-radius: 8px;
+	border: none;
+	height:40px; 
+    width:80px;
+    background-color:#FFFFFF;
+    font-family:'Verdana';
+     font-size:12px;
+	}
+.botao2{
+	margin-top:10px;
+	margin-left:110px;
+	border-radius: 8px;
+	border: none;
+	height:40px; 
+    width:100px;
+    background-color:#FFFFFF;
+    font-family:'Verdana';
+     font-size:12px;
+	}
+	

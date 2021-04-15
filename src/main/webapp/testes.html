@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<select size="1" id="aaa">
+  <option selected value="#">Escolher um...</option>
+  <option value="http://www.orkut.com.br/">Orkut</option>
+  <option value="http://www.google.com">Google</option>
+  <option value="http://br.MSN.com/">MSN</option>
+</select>
+
+<table id="tblCadastro"> 
+  <thead>
+    <tr>
+      <th>Empresa/Parceiro</th>
+      <th>Cliente/Fornecedor</th>
+      <th>Natureza</th>
+      <th>Contato</th>
+      <th>Telefone</th>
+      <th>E-Mail</th>
+      <th>Cliente Atendido</th>
+      <th>Taxa Hora</th>
+      <th>% GP</th>
+      <th>Taxa GP</th>
+      <th>Tipo de Despesa</th>
+      <th>Valor Despesa Calculado</th>
+      <th>Observações</th>
+      <th>ND OU NF?</th>
+    </tr>
+  </thead>
+  <tbody id="tabela">
+    <tr id="linhaParaClonar">
+      <td><input type="text" class="noBorder" name="cod_empresa" id="cod_empresa"/></td>
+      <td><input type="text" class="noBorder" name="cod_cliente" id="cod_cliente"/></td>
+      <td><input type="text" class="noBorder" name="cod_natureza" id="cod_natureza" /></td>
+      <td><input type="text" class="noBorder" name="cod_contato" id="cod_contato" /></td>
+      <td><input type="text" class="noBorder" name="cod_telefone" id="cod_telefone" /></td>
+      <td><input type="text" class="noBorder" name="cod_email" id="cod_email" /></td>
+      <td><input type="text" class="noBorder" name="cod_clienteatendido" id="cod_clienteatendido" /></td>
+      <td><input type="text" class="noBorder" name="cod_txhora" id="cod_txhora" /></td>
+      <td><input type="text" class="noBorder" name="cod_porcentagemgp" id="cod_porcentagemgp" /></td>
+      <td><input type="text" class="noBorder" name="cod_txgp" id="cod_txgp" /></td>
+      <td><input type="text" class="noBorder" name="cod_tipodespesa" id="cod_tipodespesa" /></td>
+      <td><input type="text" class="noBorder" name="cod_vldespesa" id="cod_vldespesa" /></td>
+      <td><input type="text" class="noBorder" name="cod_observacoes" id="cod_observacoes" /></td>
+      <td><input type="text" class="noBorder" name="cod_ndnf" id="cod_ndnf" /></td>
+    </tr>
+  </tbody>
+</table>
+<input type="button" onclick="clonarLinha()" value="Nova linha" />
+</body>
+</html>

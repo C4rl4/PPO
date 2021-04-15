@@ -1,0 +1,71 @@
+body{
+  width: 95%;
+  height: 80%;
+
+  background-color: #f5deb3;
+  margin: 30px;
+  margin-top: auto;
+}
+
+main{
+  margin-top: 100px;
+  color: #00000054;
+  margin-top: 20px;
+  border-radius: 100px;
+}
+
+.principal{
+margin-top: -25px;
+width: 280px;
+height: 600px;
+background: black;
+border-radius: 5px;
+float: left;
+
+}
+
+ul{
+  list-style: none;
+
+}
+ul li{
+  margin-top: 40px;
+  margin-left: 35px;
+}
+
+.butao{
+   width: 100px;
+
+}
+
+.titulo{
+  color:white;
+  float:top;
+  font-size: 30px;
+  text-shadow: 2px 2px 2px white;
+  margin-left: 50px;
+}
+
+.redondo{
+  border-radius: 35px;
+  background-size:  50px;
+  background-color: #e6e6e6;
+  font-size: 50px;
+  padding: 10px 10px;
+  color: #595959;
+  margin-left: 20px;
+
+
+}
+
+.redondo:hover{
+  text-decoration: none;
+  color: white ;
+
+}
+#pesquisa{
+  margin-left: 350px;
+  width: 400px;
+  margin-top: 50px;
+
+}

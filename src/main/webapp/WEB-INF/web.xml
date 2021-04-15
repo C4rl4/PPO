@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee"
+ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+<display-name>Archetype Created Web Application</display-name>
+<servlet>
+	<description>
+	</description>
+	<display-name>EditorServlet</display-name>
+	<servlet-name>EditorServlet</servlet-name>
+	<servlet-class>servlets.EditorServlet</servlet-class>
+</servlet>
+<servlet>
+	<description>
+	</description>
+	<display-name>CadServlet</display-name>
+	<servlet-name>CadServlet</servlet-name>
+	<servlet-class>servlets.CadServlet</servlet-class>
+</servlet>
+<servlet>
+	<description>
+	</description>
+	<display-name>Dicionario</display-name>
+	<servlet-name>Dicionario</servlet-name>
+	<servlet-class>servlets.Dicionario</servlet-class>
+</servlet>
+<servlet>
+	<description>
+	</description>
+	<display-name>UsuarioServlet</display-name>
+	<servlet-name>UsuarioServlet</servlet-name>
+	<servlet-class>servlets.UsuarioServlet</servlet-class>
+</servlet>
+<servlet>
+	<description>
+	</description>
+	<display-name>UsuarioControle</display-name>
+	<servlet-name>UsuarioControle</servlet-name>
+	<servlet-class>controller.UsuarioControle</servlet-class>
+</servlet>
+<servlet>
+	<description>
+	</description>
+	<display-name>LoginUsuario</display-name>
+	<servlet-name>LoginUsuario</servlet-name>
+	<servlet-class>controller.LoginUsuario</servlet-class>
+</servlet>
+<servlet>
+	<description>
+	</description>
+	<display-name>PaginainicialUsuario</display-name>
+	<servlet-name>PaginainicialUsuario</servlet-name>
+	<servlet-class>controller.PaginainicialUsuario</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>EditorServlet</servlet-name>
+	<url-pattern>/EditorServlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>CadServlet</servlet-name>
+	<url-pattern>/CadServlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>Dicionario</servlet-name>
+	<url-pattern>/Dicionario</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>UsuarioServlet</servlet-name>
+	<url-pattern>/UsuarioServlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>UsuarioControle</servlet-name>
+	<url-pattern>/UsuarioControle</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>LoginUsuario</servlet-name>
+	<url-pattern>/LoginUsuario</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>PaginainicialUsuario</servlet-name>
+	<url-pattern>/PaginainicialUsuario</url-pattern>
+</servlet-mapping>
+
+ <welcome-file-list>
+    
+    <welcome-file>pagonaini.html</welcome-file>
+  </welcome-file-list>
+</web-app>

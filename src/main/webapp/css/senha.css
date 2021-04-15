@@ -1,0 +1,40 @@
+.senha{
+  width: 400px;
+  height: 540px;
+  background-color: #595959;
+  margin-left: 500px;
+  margin-top: 60px;
+  border-radius: 8px;
+padding-top: 40px;
+
+}
+
+.titulo{
+  color:white;
+  float:top;
+  font-size: 30px;
+  text-shadow: 2px 2px 2px white;
+  margin-left: 110px;
+}
+
+.rec{
+  color:black;
+
+   font-size: 20px;
+  text-shadow: 2px 2px 2px white;
+  margin-left: 130px;
+}
+
+#senhaForca{
+width: 300px;
+margin-left: 50px;
+height: 40px;
+}
+
+.edite{
+  margin-left: 50px;
+}
+
+.butao{
+  margin-left: 130px;
+}
