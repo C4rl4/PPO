@@ -1,6 +1,8 @@
 package classbeans;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.Blob;
 import java.util.Date;
 
@@ -12,14 +14,15 @@ public class Usuario {
 	private Date nascimento ;
 	private String sexo ;
 	private String tipo ;
-	private String documento;
+	private InputStream documento;
+	private String documentorecebe;/* ajeitar para file e converter a imagem do servlet para file[]*/
 	private String email;
 	private String senha;
 	
 	
 	
-	public Usuario(Integer id, String nome, Date nascimento, String sexo, String tipo,String documento, String email,
-			String senha) {
+	public Usuario(Integer id, String nome, Date nascimento, String sexo, String tipo,InputStream documento, String email,
+			String senha, String documentorecebe) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -29,8 +32,15 @@ public class Usuario {
 		this.documento = documento;
 		this.email = email;
 		this.senha = senha;
+		this.documentorecebe= documentorecebe;
 	}
 	public Usuario() {}
+	public String getDocumentorecebe() {
+		return documentorecebe;
+	}
+	public void setDocumentorecebe(String string) {
+		this.documentorecebe = string;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -61,10 +71,10 @@ public class Usuario {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	public String getDocumento() {
+	public InputStream getDocumento() {
 		return documento;
 	}
-	public void setDocumento(String string) {
+	public void setDocumento(InputStream string) {
 		this.documento = string;
 	}
 	public String getEmail() {

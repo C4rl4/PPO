@@ -1,19 +1,26 @@
 package classbeans;
 
+import java.io.File;
+import java.io.InputStream;
+
 public class DicionarioSimbolo {
 	private int id;
 	private String nome;
-	private String img;
-	private int iddicpronto;
+	private InputStream img;
+	private File imgrecebe;
+	private int iddicisimbolo;
+	private Integer iddicsimbolo;
 	
 	public DicionarioSimbolo() {
 		
 	}
-	public DicionarioSimbolo(Integer id, String nome, String img, Integer iddicpronto) {
+	public DicionarioSimbolo(Integer id, String nome, InputStream img, File imgrecebe ,Integer iddicpronto) {
 		this.id=id;
 		this.nome=nome;
 		this.img=img;
-		this.iddicpronto=iddicpronto;
+		this.imgrecebe=imgrecebe;
+		this.iddicsimbolo=iddicpronto;
+		
 	}
 	public int getId() {
 		return id;
@@ -27,17 +34,24 @@ public class DicionarioSimbolo {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getImg() {
+	public InputStream getImg() {
 		return img;
 	}
-	public void setImg(String img) {
+	public void setImg(InputStream img) {
 		this.img = img;
 	}
-	public int getIddicpronto() {
-		return iddicpronto;
+	
+	public File getImgrecebe() {
+		return imgrecebe;
 	}
-	public void setIddicpronto(int iddicpronto) {
-		this.iddicpronto = iddicpronto;
+	public void setImgrecebe(File imgrecebe) {
+		this.imgrecebe = imgrecebe;
+	}
+	public int getIddicsimb() {
+		return iddicsimbolo;
+	}
+	public void setIddicsimb(int iddicpronto) {
+		this.iddicsimbolo = iddicpronto;
 	}
 	
 }

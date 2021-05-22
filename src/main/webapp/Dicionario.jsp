@@ -1,33 +1,92 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+    pageEncoding="ISO-8859-1"%>    
+<%@page import="dao.DaoDicionarioPronto" %>
+<%@page import="classbeans.DicionarioPronto" %>
+<%@page import="java.util.ArrayList" %>
+
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<link rel="stylesheet" href="css/dicionario.css">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/dicionario2.css">
+    <link rel="stylesheet" href="css/cart.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
- 
-<title>Dicionario</title>
+
 </head>
 <body>
+  <!--Menu-->
 
-    <h1>Dicionário</h1>
-    <div class="um">
-    <table classe = "table"  border="1" width= 500  >
-      <tr>
-        <th classe ="tabela">Imagem</th>
-        <th>Significado</th>
-       <tbody>
-      <c:forEach items="${DicionarioPronto} " var="dicionario">
-      <tr>
-      <td><c:out value="${dicionario.img} "/></td>
-      <td><c:out value="${dicionario.nome} "/></td>
-      </tr>
-      
-      </c:forEach>
+      <a href="principalouvinte.html"><div class="Slogan2"> <p class = "titulo">Sign Writing </p></div></a>
+      <div class="Inicio"><a href="principalouvinte.jsp"><i class="material-icons"style=" height:100%;">home</i></a></div>
 
-    </table>   </div>
-    
+<br>
+  <h1 >Dicionario</h1>
+
+  <!--Barra de pesquisa-->
+
+  <!-- Barra de search(procurar) ou filtro -->
+       <form class='box'>
+        <!-- Lupa -->
+        <span class='material-icons bloom' onclick="buscar()">search</span>
+        <!-- Input de procura do usuÃ¡rio -->
+        <input id='inputUser' list="opcoes" onchange='searchBar()' type='text' placeholder='Pesquisa'>
+        
+        <datalist id="opcoes">
+        <%
+	ArrayList<DicionarioPronto>lista = new ArrayList<DicionarioPronto>();
+		
+	try{
+		DaoDicionarioPronto dDao = new DaoDicionarioPronto();
+	lista=dDao.getallDicionario();
+	}catch(Exception e){
+		out.println(e);
+	}
+	for(DicionarioPronto p: lista){
+	
+	%>
+          <option ><%=p.getNome() %></option>
+          <%} %>
+        </datalist>
+      </form>
+      <p id="resultadonome"></p><br></br>
+       <p id="resultacategoria"></p>
+  <input id="resultadoimg" type="image" style="width:100px"  src=""/>
+
+<!--tabela-->
+<br>
+       <section class="main">
+<%
+ArrayList<DicionarioPronto> dici = new ArrayList<DicionarioPronto>();
+try{
+	DaoDicionarioPronto dDao = new DaoDicionarioPronto();
+	dici= dDao.getallDicionario();
+}catch(Exception e){
+	out.println(e);
+}
+for(DicionarioPronto p: dici){
+
+
+%>
+
+  <div class="wrap wrap--1" style="display:inline-block">
+    <div class="container container--1" style="width:150px;height:90px" >
+   		<input type="image" style="width:60%; height:70px; padding-top:20px;"  src="<%=p.getReceber().getAbsolutePath() %>"/>
+   		<p style="color:black; font-size:12px"><%=p.getNome()%></p><br></br>
+   		<p style="color:black; font-size:12px"><%=p.getCategoria()%></p>
+  </div>
+     </div>
+ 
+<%} %>
+</section>
+<script>
+var captura="";
+function buscar(){
+	captura=document.getElementById('inputUser').value;
+	document.getElementById('resultadonome').innerHTML=captura;
+	document.getElementById('resultadoimg').src="img/"+captura+".png";
+}
+</script>
+   <script src= "cad.js"></script>
 
 
 </body>

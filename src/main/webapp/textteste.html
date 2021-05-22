@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<canvas id="canvas" style="width:900px; height:600px; border:solid 1px #ccc;display:inline-block;"></canvas>
+<script>
+	var canvas =window._canvas= document.getElementById("canvas");
+	  var ctx = document.getElementById('canvas').getContext('2d');
+	  var img = new Image();
+	  var img2 = new Image();
+	  var imagem= new Array();
+function draw() {
+	    // Draw a rectangle with default settings
+		img.src='conf1/conf1.1.1.png';
+		ctx.drawImage(img, 10,10);
+		imagem.push(img);
+		
+		img2.src='conf1/conf1.2.1-removebg-preview.png';
+		ctx.drawImage(img2, 20,10);
+		imagem.push(img2);
+		ctx.save();
+		var img3 = new Image();
+		img3.src='conf1/conf1.3.1-removebg-preview.png';
+		ctx.drawImage(img3, 20,10);
+		
+	  	}
+function deletar(){
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+ctx.restore();
+for(var i=0; i<imagem.length; i++){
+ctx.drawImage(imagem[i], 10,10);}
+}
+function drawnew(){
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	ctx.restore();
+	ctx.drawImage(img,10,10);
+	var img2 = new Image();
+	img2.src='conf1/con1.3.1-removebg-preview.png.png';
+	ctx.drawImage(img2, 20,10);
+	}
+function deletarnovamente(){
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	ctx.restore();
+	imagem.pop();
+	
+	for(var i=0; i<imagem.length; i++){
+		ctx.drawImage(imagem[i], 10,10);}
+		
+}
+function deletarnovamente2(){
+	deletarnovamente();
+	
+}
+
+
+
+</script>
+
+<button   onclick="draw()">adicionar</button>
+<button   onclick="deletar()">deletar</button>
+<button   onclick="drawnew()">adicionarnovo</button>
+<button   onclick="deletarnovamente()">deletarnovamente</button>
+<button   onclick="deletarnovamente2()">deletarnovamente</button>
+</body>
+</html>

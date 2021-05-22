@@ -1,27 +1,29 @@
+
 .senha{
   width: 400px;
   height: 540px;
-  background-color: #595959;
-  margin-left: 500px;
+    background:  #1ac6ff;;
+  margin-left: 510px;
   margin-top: 60px;
   border-radius: 8px;
 padding-top: 40px;
+border: 2px solid #0096cc;
 
 }
 
 .titulo{
+  font-family:'Titania';
   color:white;
   float:top;
   font-size: 30px;
   text-shadow: 2px 2px 2px white;
-  margin-left: 110px;
+  margin-left: 115px;
 }
 
 .rec{
   color:black;
-
+  font-family:'Titania';
    font-size: 20px;
-  text-shadow: 2px 2px 2px white;
   margin-left: 130px;
 }
 
@@ -36,5 +38,5 @@ height: 40px;
 }
 
 .butao{
-  margin-left: 130px;
+  margin-left: 140px;
 }

@@ -2,7 +2,10 @@ package dao;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -29,17 +32,17 @@ public class DaoUsuario {
 		
 		try {
 		PreparedStatement preparastmt = 
-				connection.prepareStatement("insert into usuario(id,nome,nascimento,sexo,tipo,documento,email,senha ) values(?,?,?,?,?,?,?,?)");
+				connection.prepareStatement("insert into usuario(nome,nascimento,sexo,tipo,documento,email,senha ) values(?,?,?,?,?,?,?)");
 		
-		preparastmt.setInt(1, usuario.getId());
-		preparastmt.setString(2, usuario.getNome());
+		
+		preparastmt.setString(1, usuario.getNome());
 		System.out.println(usuario.getNascimento());
-		preparastmt.setDate(3, new java.sql.Date(usuario.getNascimento().getTime()));
-		preparastmt.setString(4,usuario.getSexo());
-		preparastmt.setString(5, usuario.getTipo());
-		preparastmt.setString(6,usuario.getDocumento());
-		preparastmt.setString(7, usuario.getEmail());
-		preparastmt.setString(8, usuario.getSenha());
+		preparastmt.setDate(2, new java.sql.Date(usuario.getNascimento().getTime()));
+		preparastmt.setString(3,usuario.getSexo());
+		preparastmt.setString(4, usuario.getTipo());
+		preparastmt.setBinaryStream(5, usuario.getDocumento());
+		preparastmt.setString(6, usuario.getEmail());
+		preparastmt.setString(7, usuario.getSenha());
 		preparastmt.executeUpdate();
 		
 		}catch (SQLException exc) {
@@ -64,12 +67,13 @@ public class DaoUsuario {
 			+ "where id=?");
 			preparaupdate.setString(1, usuario.getNome());
 			preparaupdate.setDate(2,new java.sql.Date(usuario.getNascimento().getTime()));
-			preparaupdate.setString(3,usuario.getSexo());
+			preparaupdate.setString(3, usuario.getSexo());
 			preparaupdate.setString(4, usuario.getTipo());
-			preparaupdate.setString(5,usuario.getDocumento());
+			preparaupdate.setBinaryStream(5, usuario.getDocumento());
 			preparaupdate.setString(6, usuario.getEmail());
 			preparaupdate.setString(7, usuario.getSenha());
 			preparaupdate.setInt(8, usuario.getId());
+			preparaupdate.executeUpdate();
 			
 		}catch (SQLException exc) {
 			exc.printStackTrace();
@@ -96,43 +100,40 @@ public class DaoUsuario {
 		} 
 		return listausuario;
 	}
-	public Usuario getUsuarioByid(int usuarioid) {
+	public Usuario getUsuarioByid(int usuarioid) throws IOException, SQLException {
 		Usuario usuario = new Usuario();
-		try {
-			PreparedStatement buscausuario = 
-					connection.prepareStatement("select * from usuario where id=?");
-			buscausuario.setInt(1, usuarioid);
-			ResultSet rs = buscausuario.executeQuery();
-			if(rs.next()) {
-				usuario.setId(rs.getInt("id"));
-				usuario.setNome(rs.getString("nome"));
-				usuario.setNascimento(rs.getDate("nascimento"));
-				usuario.setSexo(rs.getString("sexo"));
-				usuario.setTipo(rs.getString("tipo"));
-				usuario.setDocumento(rs.getString("documento"));
-				usuario.setEmail(rs.getString("email"));
-				usuario.setSenha(rs.getString("senha"));
-			}
-		}catch (SQLException exc) {
-			exc.printStackTrace();
-		} 
-		return usuario;
-	}
-	public Usuario getLogin(String nome, String senha) {
-		Usuario usuario = new Usuario();
-		try {
-		PreparedStatement buscausuario = 
-				connection.prepareStatement("select * from usuario where nome=? and senha=? ");
-		buscausuario.setString(1, nome);
-		buscausuario.setString(2, senha);
-		ResultSet rs = buscausuario.executeQuery();
+		
+		PreparedStatement busca=connection.prepareStatement("select * from usuario where id = ?");
+		busca.setInt(1, usuarioid);
+		ResultSet rs = busca.executeQuery();
+		
 		if(rs.next()) {
-			usuario.setId(rs.getInt("id"));
 			usuario.setNome(rs.getString("nome"));
-			usuario.setNascimento(rs.getDate("nascimento"));
-			usuario.setSexo(rs.getString("sexo"));
+			usuario.setId(rs.getInt("id"));
 			usuario.setTipo(rs.getString("tipo"));
-			usuario.setDocumento(rs.getString("documento"));
+		}
+		return usuario;
+		
+		
+			
+	}
+	public Usuario getLogin(String nome, String senha) throws IOException {
+		Usuario usuario = new Usuario();
+		System.out.println(nome);
+		try {
+			
+			PreparedStatement busca =connection.prepareStatement("select * from usuario where nome = ? and senha=?");
+			busca.setString(1, nome);
+			
+		busca.setString(2, senha);
+		ResultSet rs = busca.executeQuery();
+		
+		if(rs.next()) {
+			
+			
+			usuario.setNome(rs.getString("nome"));
+			usuario.setTipo(rs.getString("tipo"));
+			
 			usuario.setEmail(rs.getString("email"));
 			usuario.setSenha(rs.getString("senha"));
 		}
@@ -140,9 +141,40 @@ public class DaoUsuario {
 		}catch (SQLException exc) {
 			exc.printStackTrace();
 		} 
+		
+		System.out.println(usuario.getNome());
+		System.out.println(usuario.getSenha());
+		System.out.println(usuario.getEmail());
+		System.out.println(usuario.getTipo());
 		return usuario;
+	}
+	public Integer getusuarionomeusuarioByName(String nomeusuario) throws SQLException {
+		PreparedStatement dic =connection.prepareStatement("select id from usuario where nome = ?");
+		dic.setString(1, nomeusuario);
+		System.out.println(nomeusuario);
+		ResultSet rs=dic.executeQuery();
+		if(rs.next()) { 
+		return rs.getInt("id");
+		}
+		return 0;
+		
+	}
+	public String getusuarionomeusuarioByTipo(int idusuario) throws SQLException {
+		PreparedStatement dic =connection.prepareStatement("select tipo from usuario where id = ?");
+		String tipo = null;
+		dic.setInt(1, idusuario);
+		System.out.println(idusuario);
+		ResultSet rs=dic.executeQuery();
+		if(rs.next()) { 
+		 tipo=rs.getString("tipo");
+		}
+		return tipo;
+		
+	}
+	
+		
+		
 	}
 
 	
 
-}
